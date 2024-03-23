@@ -30,12 +30,14 @@
                 <Slider x:Name="sldGreen"
                         ThumbColor="{StaticResource Primary}"
                         MaximumTrackColor="{StaticResource Tertiary}"
-                        MinimumTrackColor="{StaticResource Secondary}"></Slider>
+                        MinimumTrackColor="{StaticResource Secondary}"
+                        ValueChanged="sldRed_ValueChanged"></Slider>
                 <Label Text="Blue Value :" FontAttributes="Bold"></Label>
                 <Slider x:Name="sldBlue"
                         ThumbColor="{StaticResource Primary}"
                          MaximumTrackColor="{StaticResource Tertiary}"
-                        MinimumTrackColor="{StaticResource Secondary}"></Slider>
+                        MinimumTrackColor="{StaticResource Secondary}"
+                        ValueChanged="sldRed_ValueChanged"></Slider>
 
                 <Frame CornerRadius="25"
                        HorizontalOptions="Center">
@@ -53,7 +55,8 @@
                 </Frame>
                 <Button x:Name="btnRandom" 
                         BackgroundColor="{StaticResource Primary}"
-                        Text="Generate Random Color"></Button>
+                        Text="Generate Random Color"
+                        Clicked="btnRandom_Clicked"></Button>
             </VerticalStackLayout>
         </Frame>
     </Grid>

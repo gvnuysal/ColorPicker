@@ -23,6 +23,18 @@
         {
             btnRandom.BackgroundColor = color;
             Container.BackgroundColor = color;
+            lblHex.Text= color.ToHex();
+        }
+
+        private void btnRandom_Clicked(object sender, EventArgs e)
+        {
+            var random = new Random();
+            var color = Color.FromRgb(random.Next(0,265),random.Next(0,265), random.Next(0,265));
+
+            SetColor(color);
+            sldBlue.Value = color.Blue;
+            sldGreen.Value = color.Green;
+            sldRed.Value = color.Red;
         }
     }
 
