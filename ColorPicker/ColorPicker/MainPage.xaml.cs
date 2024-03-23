@@ -1,9 +1,11 @@
-﻿namespace ColorPicker
+﻿using CommunityToolkit.Maui.Alerts;
+
+namespace ColorPicker
 {
     public partial class MainPage : ContentPage
     {
         int count = 0;
-
+        private string hexValue;
         public MainPage()
         {
             InitializeComponent();
@@ -23,7 +25,8 @@
         {
             btnRandom.BackgroundColor = color;
             Container.BackgroundColor = color;
-            lblHex.Text= color.ToHex();
+            hexValue = color.ToHex();
+            lblHex.Text= hexValue;
         }
 
         private void btnRandom_Clicked(object sender, EventArgs e)
@@ -35,6 +38,15 @@
             sldBlue.Value = color.Blue;
             sldGreen.Value = color.Green;
             sldRed.Value = color.Red;
+        }
+
+        private async void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            await Clipboard.SetTextAsync(hexValue);
+            var toast = Toast.Make("Color Copied",
+                                    CommunityToolkit.Maui.Core.ToastDuration.Short,
+                                    12);
+            await toast.Show();
         }
     }
 
